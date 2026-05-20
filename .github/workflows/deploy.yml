@@ -21,3 +21,14 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         server-dir: /                   # Syncs to your main directory
         dangerous-clean-slate: false    # Protects server folders like 'cgi-bin' and 'Iain'
+with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        server-dir: public_html/
+        dangerous-clean-slate: false
+        # This tells GitHub to keep these files in your repository but NOT upload them to 123-Reg:
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/README.md
