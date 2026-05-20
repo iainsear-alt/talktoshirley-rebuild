@@ -1,0 +1,23 @@
+name: Deploy Website to 123-Reg
+
+on:
+  push:
+    branches:
+      - main  # Fires whenever you Sync Changes in VS Code
+
+jobs:
+  web-deploy:
+    name: Sync Files
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get latest code from GitHub
+      uses: actions/checkout@v4
+    
+    - name: Sync files to 123-Reg
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        server-dir: /                   # Syncs to your main directory
+        dangerous-clean-slate: false    # Protects server folders like 'cgi-bin' and 'Iain'
