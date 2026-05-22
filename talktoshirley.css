@@ -46,14 +46,27 @@ div#menu ul li a {
 	margin-right:10px;
 	background-color:#F5B3C4;
 	padding:3px 9px;
-	border-radius: 5px; 
-	-moz-border-radius: 5px; 
-	-webkit-border-radius: 5px;
+	border-radius: 5px;
 	font-weight:bold;
 	font-size:11pt;
 }
 div#menu ul li a:hover {
 	background-color:#999999;
+}
+#menu-toggle {
+	display:none;
+	border:none;
+	background-color:#F5B3C4;
+	color:#6D4F77;
+	border-radius:5px;
+	padding:10px 14px;
+	font-weight:bold;
+	font-size:11pt;
+	cursor:pointer;
+}
+#menu-toggle:focus {
+	outline:3px solid #FFFFFF;
+	outline-offset:3px;
 }
 div#intro {
 	height:500px;
@@ -153,13 +166,6 @@ div#services-for-you-col1 {
 	font-size:10pt;
 	line-height:17px;
 }
-div#services-for-you-col1 ul {
-	margin:0;
-	padding-left:15px;
-}
-div#services-for-you-col1 ul li {
-	margin-bottom:10px;
-}
 div#services-for-you-col2 {
 	position:absolute;
 	left:370px;
@@ -167,13 +173,6 @@ div#services-for-you-col2 {
 	width:277px;
 	font-size:10pt;
 	line-height:17px;
-}
-div#services-for-you-col2 ul {
-	margin:0;
-	padding-left:15px;
-}
-div#services-for-you-col2 ul li {
-	margin-bottom:10px;
 }
 div#services-for-you-col3 {
 	position:absolute;
@@ -183,17 +182,21 @@ div#services-for-you-col3 {
 	font-size:10pt;
 	line-height:17px;
 }
-div#services-for-you-col3 ul {
+div#services-for-you-col1 ul,
+div#services-for-you-col2 ul,
+div#services-for-you-col3 ul,
+div#services-for-businesses-and-groups-col2 ul,
+div#how-to-workshops-col2 ul {
 	margin:0;
 	padding-left:15px;
 }
-div#services-for-you-col3 ul li {
+div#services-for-you-col1 ul li,
+div#services-for-you-col2 ul li,
+div#services-for-you-col3 ul li,
+div#services-for-businesses-and-groups-col2 ul li {
 	margin-bottom:10px;
 }
-span#services-for-you-col3-highlight1 {
-	font-weight:bold;
-	color:#6D4F77;
-}
+span#services-for-you-col3-highlight1,
 span#services-for-you-col3-highlight2 {
 	font-weight:bold;
 	color:#6D4F77;
@@ -523,6 +526,129 @@ a#bacp-logo {
 		position:fixed;
 		top:0;
 		left:0;
+	}
+}
+
+@media screen and (max-width: 920px) {
+	div#menu {
+		width:100%;
+		position:relative;
+		height:auto;
+	}
+	#menu-toggle {
+		display:inline-block;
+	}
+	div#menu ul {
+		position:static;
+		top:auto;
+		left:auto;
+		display:none;
+		flex-direction:column;
+		width:100%;
+		margin:0;
+		padding:10px 0;
+		background-color:#6D4F77;
+		list-style:none;
+	}
+	div#menu ul.open {
+		display:flex;
+	}
+	div#menu ul li {
+		float:none;
+		margin:0;
+		padding:0;
+		width:100%;
+	}
+	div#menu ul li a {
+		display:block;
+		width:100%;
+		box-sizing:border-box;
+		padding:10px 16px;
+		text-align:center;
+		margin:0 0 8px;
+	}
+	div.wrapper {
+		width:auto;
+		padding:0 15px;
+		overflow:visible;
+	}
+	div.section {
+		width:auto;
+		height:auto;
+		min-height:auto;
+	}
+	div#intro {
+		margin-top:0;
+		padding-top:80px;
+		height:auto;
+	}
+	div#intro-text,
+	img#intro-shirley,
+	img#about-me-shirley,
+	img#practice-shirley,
+	div#about-me-col1,
+	div#about-me-col2,
+	div#services-for-you-col1,
+	div#services-for-you-col2,
+	div#services-for-you-col3,
+	img#services-for-you-relationshipproblems,
+	img#services-for-you-angryfrustrated,
+	img#services-for-you-traumaticsituation,
+	img#services-for-you-getupandgo,
+	img#services-for-you-anxietyphobias,
+	img#services-for-you-whycanti,
+	div#services-for-businesses-and-groups-col1,
+	div#services-for-businesses-and-groups-col2,
+	img#services-for-businesses-and-groups-polaroid,
+	img#services-for-businesses-and-groups-laughtertherapy,
+	img#services-for-businesses-and-groups-alternativeteambuilding,
+	div#how-to-workshops-col1,
+	div#how-to-workshops-col2,
+	img#how-to-workshops-improve-communication-skills,
+	img#how-to-workshops-lift-your-mood-quickly,
+	div#testimonials-col1,
+	div#testimonials-col2,
+	div#testimonials-col3,
+	div#costs-col1,
+	div#costs-col2,
+	img#costs-student-counsellor-concessions,
+	img#costs-taster-sessions-available,
+	div#contact-me-col1,
+	img#contact-me-icon-phone,
+	span#contact-me-phone-label,
+	a#contact-me-phone-number,
+	img#contact-me-icon-envelope,
+	span#contact-me-email-label,
+	span#contact-me-email-address-container,
+	div#footer-content,
+	img#footer-logo,
+	a#bacp-logo {
+		position:static !important;
+		left:auto !important;
+		top:auto !important;
+		width:auto !important;
+		margin:0 auto 20px;
+		float:none !important;
+		display:block;
+	}
+	div#about-me-col1,
+	div#about-me-col2,
+	div#services-for-you-col1,
+	div#services-for-you-col2,
+	div#services-for-you-col3,
+	div#services-for-businesses-and-groups-col1,
+	div#services-for-businesses-and-groups-col2,
+	div#how-to-workshops-col1,
+	div#how-to-workshops-col2,
+	div#testimonials-col1,
+	div#testimonials-col2,
+	div#testimonials-col3,
+	div#costs-col1,
+	div#costs-col2,
+	div#contact-me-col1,
+	div#footer-content {
+		width:auto !important;
+		padding:0;
 	}
 }
 
