@@ -13,9 +13,11 @@ div.wrapper {
 	position:relative;
 	margin-left:auto;
 	margin-right:auto;
-	width:1020px;
+	width:100%;
+	max-width:1020px;
 	height:100%;
 	overflow:hidden;
+	box-sizing:border-box;
 }
 span.sectionintro {
 	font-size:11pt;
@@ -23,35 +25,51 @@ span.sectionintro {
 	font-weight:bold;
 }
 div#menu {
-	height:60px;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	width:100%;
 	background-color:#6D4F77;
 	z-index:100;
+	padding:0 15px;
+	box-sizing:border-box;
+}
+#menu .wrapper {
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+	width:100%;
+	box-sizing:border-box;
+	flex-wrap:wrap;
 }
 div#menu ul {
-	position:absolute;
-	top:20px;
-	left:40px;
+	position:relative;
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:center;
+	gap:10px;
 	list-style-type:none;
 	margin:0;
-	padding:0;
+	padding:10px 0;
+	width:100%;
+	max-width:100%;
 }
 div#menu ul li {
 	margin:0;
 	padding:0;
-	float:left;
 }
 div#menu ul li a {
 	color:#6D4F77;
 	text-decoration:none;
-	margin-right:10px;
 	background-color:#F5B3C4;
-	padding:3px 9px;
-	border-radius: 5px;
+	padding:8px 12px;
+	border-radius:5px;
 	font-weight:bold;
 	font-size:11pt;
 }
 div#menu ul li a:hover {
 	background-color:#999999;
+	color:#FFFFFF;
 }
 #menu-toggle {
 	display:none;
@@ -280,18 +298,55 @@ span#services-for-businesses-and-groups-col3-highlight a {
 }
 img#services-for-businesses-and-groups-polaroid {
 	position:absolute;
-	top:210px;
-	left:70px;
+	top:180px;
+	left:60px;
+	width:220px;
+	opacity:0.18;
+	pointer-events:none;
+	z-index:0;
 }
 img#services-for-businesses-and-groups-laughtertherapy {
 	position:absolute;
-	top:95px;
-	left:695px;
+	top:70px;
+	left:620px;
+	width:170px;
+	opacity:0.18;
+	pointer-events:none;
+	z-index:0;
 }
 img#services-for-businesses-and-groups-alternativeteambuilding {
 	position:absolute;
-	top:250px;
-	left:780px;
+	top:230px;
+	left:680px;
+	width:150px;
+	opacity:0.18;
+	pointer-events:none;
+	z-index:0;
+}
+div#services-for-businesses-and-groups-col1,
+div#services-for-businesses-and-groups-col2,
+div#how-to-workshops-col1,
+div#how-to-workshops-col2 {
+	position:relative;
+	z-index:1;
+}
+img#how-to-workshops-improve-communication-skills {
+	position:absolute;
+	top:110px;
+	left:75px;
+	width:220px;
+	opacity:0.18;
+	pointer-events:none;
+	z-index:0;
+}
+img#how-to-workshops-lift-your-mood-quickly {
+	position:absolute;
+	top:220px;
+	left:170px;
+	width:180px;
+	opacity:0.18;
+	pointer-events:none;
+	z-index:0;
 }
 div#how-to-workshops {
 	height:490px;
@@ -536,7 +591,17 @@ a#bacp-logo {
 		height:auto;
 	}
 	#menu-toggle {
-		display:inline-block;
+		display:inline-flex;
+		align-items:center;
+		justify-content:center;
+		padding:10px 14px;
+		margin-bottom:10px;
+		width:auto;
+	}
+	#menu .wrapper {
+		flex-direction:column;
+		align-items:stretch;
+		gap:10px;
 	}
 	div#menu ul {
 		position:static;
@@ -546,7 +611,7 @@ a#bacp-logo {
 		flex-direction:column;
 		width:100%;
 		margin:0;
-		padding:10px 0;
+		padding:0;
 		background-color:#6D4F77;
 		list-style:none;
 	}
@@ -554,7 +619,6 @@ a#bacp-logo {
 		display:flex;
 	}
 	div#menu ul li {
-		float:none;
 		margin:0;
 		padding:0;
 		width:100%;
@@ -566,6 +630,34 @@ a#bacp-logo {
 		padding:10px 16px;
 		text-align:center;
 		margin:0 0 8px;
+	}
+	img#services-for-businesses-and-groups-polaroid,
+	img#services-for-businesses-and-groups-laughtertherapy,
+	img#services-for-businesses-and-groups-alternativeteambuilding,
+	img#how-to-workshops-improve-communication-skills,
+	img#how-to-workshops-lift-your-mood-quickly {
+		display:none !important;
+	}
+	div#services-for-businesses-and-groups,
+	div#how-to-workshops {
+		height:auto !important;
+		min-height:auto !important;
+		padding-bottom:20px;
+	}
+	div#services-for-businesses-and-groups h2,
+	div#how-to-workshops h2 {
+		position:static !important;
+		margin:0 auto 20px;
+		text-align:center;
+	}
+	div#services-for-businesses-and-groups-col1,
+	div#services-for-businesses-and-groups-col2,
+	div#how-to-workshops-col1,
+	div#how-to-workshops-col2 {
+		position:static !important;
+		width:auto !important;
+		margin:0 auto 20px;
+		padding:0;
 	}
 	div.wrapper {
 		width:auto;
@@ -579,13 +671,37 @@ a#bacp-logo {
 	}
 	div#intro {
 		margin-top:0;
-		padding-top:80px;
+		padding-top:20px;
 		height:auto;
+	}
+	h1#intro-logo {
+		position:static !important;
+		width:auto !important;
+		height:auto !important;
+		margin:0 auto 20px;
+		display:block;
+		background-size:contain;
+		background-position:center;
+		background-repeat:no-repeat;
+		text-indent:-9999px;
 	}
 	div#intro-text,
 	img#intro-shirley,
 	img#about-me-shirley,
 	img#practice-shirley,
+	div#intro-text {
+		position:static !important;
+		left:auto !important;
+		top:auto !important;
+		width:auto !important;
+		height:auto !important;
+		margin:0 auto 20px;
+		padding:0;
+	}
+	img#intro-shirley {
+		max-width:100% !important;
+		height:auto !important;
+	}
 	div#about-me-col1,
 	div#about-me-col2,
 	div#services-for-you-col1,
@@ -650,16 +766,120 @@ a#bacp-logo {
 		width:auto !important;
 		padding:0;
 	}
+	div#costs,
+	div#contact-me,
+	div#footer {
+		height:auto !important;
+		min-height:auto !important;
+		position:relative !important;
+	}
+	div#contact-me h2 {
+		position:static !important;
+		margin:0 auto 20px;
+		text-align:center;
+	}
+	div#costs-col1,
+	div#costs-col2,
+	div#contact-me-col1 {
+		width:auto !important;
+		margin:0 auto 20px !important;
+		padding:0 !important;
+	}
+	div#costs-col2 video {
+		max-width:100% !important;
+		height:auto !important;
+		display:block;
+	}
+	img#contact-me-icon-phone,
+	img#contact-me-icon-envelope {
+		position:static !important;
+		width:70px !important;
+		height:auto !important;
+		margin:0 auto 10px;
+		display:block !important;
+	}
+	span#contact-me-phone-label,
+	span#contact-me-email-label,
+	a#contact-me-phone-number,
+	span#contact-me-email-address-container {
+		position:static !important;
+		width:auto !important;
+		display:block !important;
+		text-align:center;
+		margin:0 auto 10px !important;
+		padding:0 !important;
+	}
 }
 
 @media screen and (max-width: 1020px) {
 	div#menu {
-		width:1020px;
+		width:100%;
 	}
 	div#intro {
 		margin-top:0;
 	}
 	div.section {
-		width:1020px;
+		width:100%;
+	}
+	div#costs,
+	div#contact-me,
+	div#footer {
+		height:auto !important;
+		min-height:auto !important;
+		position:relative !important;
+	}
+	div#costs-col1,
+	div#costs-col2,
+	div#contact-me-col1 {
+		position:static !important;
+		width:auto !important;
+		margin:0 auto 20px !important;
+		padding:0 !important;
+	}
+	div#contact-me h2,
+	div#footer-content {
+		position:static !important;
+		margin:0 auto 20px;
+		text-align:center;
+	}
+	img#contact-me-icon-phone,
+	img#contact-me-icon-envelope,
+	img#footer-logo,
+	a#bacp-logo {
+		position:static !important;
+		width:auto !important;
+		height:auto !important;
+		margin:0 auto 10px;
+		display:block !important;
+	}
+	span#contact-me-phone-label,
+	span#contact-me-email-label,
+	a#contact-me-phone-number,
+	span#contact-me-email-address-container {
+		position:static !important;
+		width:auto !important;
+		display:block !important;
+		text-align:center;
+		margin:0 auto 10px !important;
+		padding:0 !important;
+	}
+	div#costs-col2 video {
+		max-width:100% !important;
+		height:auto !important;
+		display:block;
+		margin:0 auto;
+	}
+	img#services-for-you-relationshipproblems,
+	img#services-for-you-angryfrustrated,
+	img#services-for-you-traumaticsituation,
+	img#services-for-you-getupandgo,
+	img#services-for-you-anxietyphobias,
+	img#services-for-you-whycanti,
+	img#services-for-businesses-and-groups-polaroid,
+	img#services-for-businesses-and-groups-laughtertherapy,
+	img#services-for-businesses-and-groups-alternativeteambuilding,
+	img#how-to-workshops-improve-communication-skills,
+	img#how-to-workshops-lift-your-mood-quickly {
+		display:none !important;
 	}
 }
