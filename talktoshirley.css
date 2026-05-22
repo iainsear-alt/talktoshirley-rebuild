@@ -1,885 +1,480 @@
 body {
-	background-color:#FFFFFF;
-	margin:0;
-	font-family: 'Quattrocento Sans', sans-serif;
+    background-color: #FFFFFF;
+    margin: 0;
+    font-family: 'Quattrocento Sans', sans-serif;
+    color: #7C7B7B;
+}
+* {
+    box-sizing: border-box;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+strong {
+    font-weight: 700;
+}
+h1, h2 {
+    margin: 0;
+    padding: 0;
 }
 h2 {
-	padding:0;
-	margin:0;
-	font-size:28pt;
-	font-weight:bold;
+    font-size: 2rem;
 }
 div.wrapper {
-	position:relative;
-	margin-left:auto;
-	margin-right:auto;
-	width:100%;
-	max-width:1020px;
-	height:100%;
-	overflow:hidden;
-	box-sizing:border-box;
+    position: relative;
+    max-width: 1020px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
 }
-span.sectionintro {
-	font-size:11pt;
-	line-height:19px;
-	font-weight:bold;
-}
-div#menu {
-	display:flex;
-	justify-content:center;
-	align-items:center;
-	width:100%;
-	background-color:#6D4F77;
-	z-index:100;
-	padding:0 15px;
-	box-sizing:border-box;
+#menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #6D4F77;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 #menu .wrapper {
-	display:flex;
-	justify-content:space-between;
-	align-items:center;
-	width:100%;
-	box-sizing:border-box;
-	flex-wrap:wrap;
-}
-div#menu ul {
-	position:relative;
-	display:flex;
-	flex-wrap:wrap;
-	justify-content:center;
-	gap:10px;
-	list-style-type:none;
-	margin:0;
-	padding:10px 0;
-	width:100%;
-	max-width:100%;
-}
-div#menu ul li {
-	margin:0;
-	padding:0;
-}
-div#menu ul li a {
-	color:#6D4F77;
-	text-decoration:none;
-	background-color:#F5B3C4;
-	padding:8px 12px;
-	border-radius:5px;
-	font-weight:bold;
-	font-size:11pt;
-}
-div#menu ul li a:hover {
-	background-color:#999999;
-	color:#FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    min-height: 60px;
+    gap: 10px;
 }
 #menu-toggle {
-	display:none;
-	border:none;
-	background-color:#F5B3C4;
-	color:#6D4F77;
-	border-radius:5px;
-	padding:10px 14px;
-	font-weight:bold;
-	font-size:11pt;
-	cursor:pointer;
+    display: none;
+    border: none;
+    background-color: #F5B3C4;
+    color: #6D4F77;
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-weight: bold;
+    cursor: pointer;
 }
-#menu-toggle:focus {
-	outline:3px solid #FFFFFF;
-	outline-offset:3px;
+#main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
-div#intro {
-	height:500px;
-	background-color:#FFFFFF;
-	margin-top:60px;
+#main-nav li {
+    margin: 0;
 }
-h1#intro-logo {
-	position:absolute;
-	top:54px;
-	left:70px;
-	margin:0;
-	padding:0;
-	background-image:url(talktoshirley.png);
-	width:229px;
-	height:118px;
-	text-indent:-9999px;
+#main-nav li a {
+    display: inline-block;
+    color: #6D4F77;
+    background-color: #F5B3C4;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.95rem;
 }
-div#intro-text {
-	position:absolute;
-	top:195px;
-	left:70px;
-	width:570px;
-	color:#7C7B7B;
-	font-weight:bold;
-	font-size:12pt;
-	line-height:22px;
+#main-nav li a:hover {
+    background-color: #999999;
+    color: #ffffff;
 }
-div#intro-text a {
-	color:#7C7B7B;
+#intro {
+    padding: 140px 0 60px;
+    background-color: #FFFFFF;
+}
+#intro-logo {
+    display: block;
+    width: 229px;
+    height: 118px;
+    background-image: url(talktoshirley.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    text-indent: -9999px;
+    margin-bottom: 30px;
+}
+#intro .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+}
+#intro-text {
+    flex: 1 1 360px;
+    color: #7C7B7B;
+    font-weight: bold;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+#intro-text a {
+    color: #7C7B7B;
+    text-decoration: underline;
 }
 img#intro-shirley {
-	position:absolute;
-	left:650px;
-	bottom:100px;
+    flex: 0 0 420px;
+    max-width: 100%;
+    border-radius: 12px;
 }
-div#about-me {
-	height:600px;
-	background-color:#6D4F77;
-	background-image:url(purple_faces.gif);
-	background-position:top center;
-	color:#FFFFFF;
+#about-me {
+    padding: 90px 0 80px;
+    background-color: #6D4F77;
+    background-image: url(purple_faces.gif);
+    background-position: top center;
+    background-repeat: repeat-x;
+    background-size: auto;
+    color: #FFFFFF;
 }
-div#about-me a {
-	color:#FFFFFF;
+#about-me .wrapper {
+    display: grid;
+    grid-template-columns: minmax(260px, 320px) minmax(260px, 1fr);
+    gap: 30px;
+    align-items: start;
 }
-div#about-me h2 {
-	position:absolute;
-	top:30px;
-	left:70px;
+#about-me h2 {
+    grid-column: 1 / -1;
+    color: #FFFFFF;
 }
-img#about-me-shirley {
-	position:absolute;
-	top:80px;
-	left:65px;
-}
+img#about-me-shirley,
 img#practice-shirley {
-	position:absolute;
-	top:320px;
-	left:65px;
-}
-div#about-me-col1 {
-	position:absolute;
-	left:345px;
-	top:75px;
-	width:280px;
-	font-size:10pt;
-	line-height:17px;
-}
-div#about-me-col2 {
-	position:absolute;
-	left:645px;
-	top:75px;
-	width:280px;
-	font-size:10pt;
-	line-height:17px;
-}
-div#about-me-col2 ul {
-	margin:0;
-	padding-left:15px;
-}
-div#services-for-you {
-	height:780px;
-	background-color:#FFFFFF;
-	color:#7C7B7B;
-}
-div#services-for-you h2 {
-	position:absolute;
-	top:30px;
-	left:70px;
-	color:#F5B3C4;
-}
-div#services-for-you-col1 {
-	position:absolute;
-	left:70px;
-	top:100px;
-	width:277px;
-	font-size:10pt;
-	line-height:17px;
-}
-div#services-for-you-col2 {
-	position:absolute;
-	left:370px;
-	top:100px;
-	width:277px;
-	font-size:10pt;
-	line-height:17px;
-}
-div#services-for-you-col3 {
-	position:absolute;
-	left:670px;
-	top:100px;
-	width:277px;
-	font-size:10pt;
-	line-height:17px;
-}
-div#services-for-you-col1 ul,
-div#services-for-you-col2 ul,
-div#services-for-you-col3 ul,
-div#services-for-businesses-and-groups-col2 ul,
-div#how-to-workshops-col2 ul {
-	margin:0;
-	padding-left:15px;
-}
-div#services-for-you-col1 ul li,
-div#services-for-you-col2 ul li,
-div#services-for-you-col3 ul li,
-div#services-for-businesses-and-groups-col2 ul li {
-	margin-bottom:10px;
-}
-span#services-for-you-col3-highlight1,
-span#services-for-you-col3-highlight2 {
-	font-weight:bold;
-	color:#6D4F77;
-}
-span#services-for-you-col3-highlight2 a {
-	color:#6D4F77;
-}
-img#services-for-you-relationshipproblems {
-	position:absolute;
-	top:640px;
-	left:70px;
-}
-img#services-for-you-angryfrustrated {
-	position:absolute;
-	top:640px;
-	left:200px;
-}
-img#services-for-you-traumaticsituation {
-	position:absolute;
-	top:640px;
-	left:335px;
-}
-img#services-for-you-getupandgo {
-	position:absolute;
-	top:640px;
-	left:530px;
-}
-img#services-for-you-anxietyphobias {
-	position:absolute;
-	top:640px;
-	left:705px;
-}
-img#services-for-you-whycanti {
-	position:absolute;
-	top:640px;
-	left:855px;
-}
-div#services-for-businesses-and-groups {
-	height:420px;
-	background-color:#FFDBE5;
-	background-image:url(pink_faces.gif);
-	background-position:top center;
-	color:#7C7B7B;
-}
-div#services-for-businesses-and-groups h2 {
-	position:absolute;
-	top:30px;
-	left:70px;
-	color:#6D4F78;
-}
-div#services-for-businesses-and-groups-col1 {
-	position:absolute;
-	left:70px;
-	top:100px;
-	width:280px;
-	font-size:11pt;
-	line-height:21px;
-	font-weight:bold;
-}
-div#services-for-businesses-and-groups-col2 {
-	position:absolute;
-	left:370px;
-	top:100px;
-	width:280px;
-	font-size:10pt;
-	line-height:17px;
-}
-div#services-for-businesses-and-groups-col2 ul {
-	margin:0;
-	padding-left:15px;
-}
-div#services-for-businesses-and-groups-col2 ul li {
-	margin-bottom:10px;
-}
-span#services-for-businesses-and-groups-col3-highlight {
-	font-weight:bold;
-	color:#6D4F77;
-}
-span#services-for-businesses-and-groups-col3-highlight a {
-	color:#6D4F77;
-}
-img#services-for-businesses-and-groups-polaroid {
-	position:absolute;
-	top:180px;
-	left:60px;
-	width:220px;
-	opacity:0.18;
-	pointer-events:none;
-	z-index:0;
-}
-img#services-for-businesses-and-groups-laughtertherapy {
-	position:absolute;
-	top:70px;
-	left:620px;
-	width:170px;
-	opacity:0.18;
-	pointer-events:none;
-	z-index:0;
-}
-img#services-for-businesses-and-groups-alternativeteambuilding {
-	position:absolute;
-	top:230px;
-	left:680px;
-	width:150px;
-	opacity:0.18;
-	pointer-events:none;
-	z-index:0;
-}
-div#services-for-businesses-and-groups-col1,
-div#services-for-businesses-and-groups-col2,
-div#how-to-workshops-col1,
-div#how-to-workshops-col2 {
-	position:relative;
-	z-index:1;
-}
-img#how-to-workshops-improve-communication-skills {
-	position:absolute;
-	top:110px;
-	left:75px;
-	width:220px;
-	opacity:0.18;
-	pointer-events:none;
-	z-index:0;
-}
-img#how-to-workshops-lift-your-mood-quickly {
-	position:absolute;
-	top:220px;
-	left:170px;
-	width:180px;
-	opacity:0.18;
-	pointer-events:none;
-	z-index:0;
-}
-div#how-to-workshops {
-	height:490px;
-	background-color:#FFFFFF;
-	color:#7C7B7B;
-}
-div#how-to-workshops h2 {
-	position:absolute;
-	top:30px;
-	left:70px;
-	color:#F5B3C4;
-}
-div#how-to-workshops-col1 {
-	position:absolute;
-	left:370px;
-	top:100px;
-	width:280px;
-	font-size:10pt;
-	line-height:17px;
-}
-div#how-to-workshops-col2 {
-	position:absolute;
-	left:670px;
-	top:100px;
-	width:280px;
-	font-size:10pt;
-	line-height:17px;
-}
-div#how-to-workshops-col2 ul {
-	margin:0;
-	padding-left:15px;
-}
-div#how-to-workshops-col2 ul li {
-	margin-bottom:10px;
-	color:#6D4F77;
-}
-span#how-to-workshops-col2-highlight {
-	font-weight:bold;
-	color:#F5B3C4;
-}
-span#how-to-workshops-col2-highlight a {
-	color:#F5B3C4;
-}
-img#how-to-workshops-improve-communication-skills {
-	position:absolute;
-	top:120px;
-	left:85px;
-}
-img#how-to-workshops-lift-your-mood-quickly {
-	position:absolute;
-	top:240px;
-	left:190px;
-}
-div#testimonials {
-	height:585px;
-	background-color:#6D4F77;
-	background-image:url(purple_faces.gif);
-	background-position:top center;
-	color:#FFFFFF;
-}
-div#testimonials h2 {
-	position:absolute;
-	top:30px;
-	left:70px;
-	color:#FFFFFF;
-}
-div#testimonials-col1 {
-	position:absolute;
-	left:70px;
-	top:100px;
-	width:280px;
-	font-size:10pt;
-	line-height:17px;
-}
-div#testimonials-col2 {
-	position:absolute;
-	left:370px;
-	top:100px;
-	width:280px;
-	font-size:10pt;
-	line-height:17px;
-}
-div#testimonials-col3 {
-	position:absolute;
-	left:670px;
-	top:100px;
-	width:280px;
-	font-size:10pt;
-	line-height:17px;
-}
-div#testimonials-col3 a {
-	color:#FFFFFF;
-}
-div#costs {
-	height:790px;
-	background-color:#FFFFFF;
-	color:#7C7B7B;
-}
-div#costs h2 {
-	position:absolute;
-	top:30px;
-	left:70px;
-	color:#F5B3C4;
-}
-div#costs-col1 {
-	position:absolute;
-	left:70px;
-	top:100px;
-	width:280px;
-	font-size:10pt;
-	line-height:17px;
-}
-div#costs-col2 {
-	position:absolute;
-	left:370px;
-	top:100px;
-	width:280px;
-	font-size:10pt;
-	line-height:17px;
-}
-img#costs-student-counsellor-concessions {
-	position:absolute;
-	top:150px;
-	left:490px;
-}
-img#costs-taster-sessions-available {
-	position:absolute;
-	top:335px;
-	left:600px;
-}
-span#costs-col1-intro {
-	font-weight:bold;
-	font-size:11pt;
-	line-height:18px;
-}
-span#costs-col1-highlight {
-	color:#6D4F77;
-	font-weight:bold;
-}
-span#costs-col1-highlight a {
-	color:#6D4F77;
-}
-div#contact-me {
-	height:319px;
-	background-color:#FFDBE5;
-	background-image:url(pink_faces.gif);
-	background-position:top center;
-	color:#7C7B7B;
-}
-div#contact-me h2 {
-	position:absolute;
-	top:30px;
-	left:70px;
-	color:#6D4F78;
-}
-div#contact-me-col1 {
-	position:absolute;
-	left:70px;
-	top:100px;
-	width:280px;
-	font-size:11pt;
-	line-height:18px;
-}
-img#contact-me-icon-phone {
-	position:absolute;
-	top:100px;
-	left:435px;
-}
-span#contact-me-phone-label {
-	position:absolute;
-	top:215px;
-	left:435px;
-}
-a#contact-me-phone-number {
-	position:absolute;
-	top:240px;
-	left:435px;
-	color:#6D4F78;
-	font-weight:bold;
-	font-size:18pt;
-	text-decoration:none;
-}
-img#contact-me-icon-envelope {
-	position:absolute;
-	top:111px;
-	left:670px;
-}
-span#contact-me-email-label {
-	position:absolute;
-	top:215px;
-	left:670px;
-}
-span#contact-me-email-address-container {
-	position:absolute;
-	top:240px;
-	left:620px;
-	padding-left:50px;
-	padding-right:50px;
-}
-a#contact-me-email-address {
-	color:#6D4F78;
-	font-weight:bold;
-	font-size:18pt;
-	text-decoration:none;
-}
-div#footer {
-	height:188px;
-	background-color:#FFFFFF;
-	color:#7C7B7B;
-}
-div#footer-content {
-	position:absolute;
-	top:105px;
-	left:215px;
-	font-size:10pt;
-	line-height:17px;
+    width: 100%;
+    max-width: 320px;
+    border-radius: 12px;
+    box-shadow: 0 12px 22px rgba(0, 0, 0, 0.16);
+    margin: 0 auto;
+}
+#about-me-col1,
+#about-me-col2 {
+    font-size: 1rem;
+    line-height: 1.75;
+}
+#services-for-you {
+    padding: 90px 0 80px;
+    background-color: #FFFFFF;
+    color: #7C7B7B;
+}
+#services-for-you .wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(240px, 1fr));
+    gap: 30px;
+    align-items: start;
+}
+#services-for-you h2 {
+    grid-column: 1 / -1;
+    color: #F5B3C4;
+}
+#services-for-you-col1,
+#services-for-you-col2,
+#services-for-you-col3 {
+    font-size: 1rem;
+    line-height: 1.75;
+}
+#services-for-you-col1 ul,
+#services-for-you-col2 ul,
+#services-for-you-col3 ul,
+#services-for-businesses-and-groups-col2 ul,
+#how-to-workshops-col2 ul {
+    margin: 0;
+    padding-left: 18px;
+}
+#services-for-you-col1 ul li,
+#services-for-you-col2 ul li,
+#services-for-you-col3 ul li,
+#services-for-businesses-and-groups-col2 ul li,
+#how-to-workshops-col2 ul li {
+    margin-bottom: 10px;
+}
+#services-for-you-col3-highlight1,
+#services-for-you-col3-highlight2 {
+    display: block;
+    font-weight: bold;
+    color: #6D4F77;
+    margin-top: 15px;
+}
+#services-for-you-col3-highlight2 a {
+    color: #6D4F77;
+    text-decoration: underline;
+}
+#services-for-you img {
+    width: auto;
+    max-width: 180px;
+    margin: 10px 10px 0 0;
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 12px;
+}
+#services-for-businesses-and-groups {
+    padding: 90px 0 80px;
+    background-color: #FFDBE5;
+    background-image: url(pink_faces.gif);
+    background-position: top center;
+    background-repeat: repeat-x;
+    background-size: auto;
+    color: #7C7B7B;
+}
+#services-for-businesses-and-groups .wrapper {
+    display: grid;
+    grid-template-columns: minmax(260px, 320px) minmax(260px, 1fr);
+    gap: 30px;
+    align-items: start;
+}
+#services-for-businesses-and-groups h2 {
+    grid-column: 1 / -1;
+    color: #6D4F78;
+}
+#services-for-businesses-and-groups-col1,
+#services-for-businesses-and-groups-col2 {
+    font-size: 1rem;
+    line-height: 1.75;
+}
+#services-for-businesses-and-groups img {
+    width: auto;
+    max-width: 260px;
+    border-radius: 12px;
+    display: block;
+    margin-top: 20px;
+}
+#how-to-workshops {
+    padding: 90px 0 80px;
+    background-color: #FFFFFF;
+    color: #7C7B7B;
+}
+#how-to-workshops .wrapper {
+    display: grid;
+    grid-template-columns: minmax(260px, 320px) minmax(260px, 1fr);
+    gap: 30px;
+    align-items: start;
+}
+#how-to-workshops h2 {
+    grid-column: 1 / -1;
+    color: #F5B3C4;
+}
+#how-to-workshops-col1,
+#how-to-workshops-col2 {
+    font-size: 1rem;
+    line-height: 1.75;
+}
+#how-to-workshops-col2-highlight {
+    display: block;
+    font-weight: bold;
+    color: #F5B3C4;
+    margin-top: 15px;
+}
+#how-to-workshops-improve-communication-skills,
+#how-to-workshops-lift-your-mood-quickly {
+    width: auto;
+    max-width: 320px;
+    border-radius: 12px;
+    display: block;
+    margin-top: 20px;
+}
+#testimonials {
+    padding: 90px 0 80px;
+    background-color: #6D4F77;
+    background-image: url(purple_faces.gif);
+    background-position: top center;
+    background-repeat: repeat-x;
+    background-size: auto;
+    color: #FFFFFF;
+}
+#testimonials .wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+    gap: 30px;
+    align-items: start;
+}
+#testimonials h2 {
+    grid-column: 1 / -1;
+    color: #FFFFFF;
+}
+#testimonials-col1,
+#testimonials-col2,
+#testimonials-col3 {
+    font-size: 1rem;
+    line-height: 1.75;
+}
+#testimonials-col3 a {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+#costs {
+    padding: 90px 0 80px;
+    background-color: #FFFFFF;
+    color: #7C7B7B;
+}
+#costs .wrapper {
+    display: grid;
+    grid-template-columns: minmax(260px, 1fr) minmax(260px, 1fr);
+    gap: 30px;
+    align-items: start;
+}
+#costs h2 {
+    grid-column: 1 / -1;
+    color: #F5B3C4;
+}
+#costs-col1,
+#costs-col2 {
+    font-size: 1rem;
+    line-height: 1.75;
+}
+#costs img {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+    margin-top: 20px;
+}
+#costs video {
+    width: 100%;
+    border-radius: 12px;
+    margin-top: 15px;
+}
+#contact-me {
+    padding: 90px 0 80px;
+    background-color: #FFDBE5;
+    background-image: url(pink_faces.gif);
+    background-position: top center;
+    background-repeat: repeat-x;
+    background-size: auto;
+    color: #7C7B7B;
+}
+#contact-me .wrapper {
+    display: grid;
+    grid-template-columns: minmax(260px, 1fr) minmax(260px, 320px);
+    gap: 30px;
+    align-items: start;
+}
+#contact-me h2 {
+    grid-column: 1 / -1;
+    color: #6D4F78;
+}
+#contact-me-col1 {
+    font-size: 1rem;
+    line-height: 1.75;
+}
+#contact-me-icon-phone,
+#contact-me-icon-envelope {
+    width: 60px;
+    margin-top: 10px;
+}
+#contact-me-phone-label,
+#contact-me-email-label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+#contact-me-phone-number,
+#contact-me-email-address {
+    display: block;
+    color: #6D4F78;
+    font-weight: bold;
+    font-size: 1.15rem;
+    margin-top: 6px;
+}
+#contact-me-email-address-container {
+    padding: 0;
+    margin-top: 4px;
+}
+#footer {
+    padding: 60px 0;
+    background-color: #FFFFFF;
+    color: #7C7B7B;
+}
+#footer .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 30px;
+}
+#footer-content {
+    flex: 1 1 320px;
+    font-size: 1rem;
+    line-height: 1.75;
 }
 img#footer-logo {
-	position:absolute;
-	top:80px;
-	left:70px;
+    flex: 0 0 220px;
+    max-width: 220px;
+    border-radius: 12px;
 }
 a#bacp-logo {
-	position:absolute;
-	top:40px;
-	left:650px;
+    flex: 0 0 160px;
+    align-self: center;
 }
-
-@media screen and (min-width: 1020px) {
-	div#menu {
-		width:100%;
-		position:fixed;
-		top:0;
-		left:0;
-	}
+a#bacp-logo img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
-
 @media screen and (max-width: 920px) {
-	div#menu {
-		width:100%;
-		position:relative;
-		height:auto;
-	}
-	#menu-toggle {
-		display:inline-flex;
-		align-items:center;
-		justify-content:center;
-		padding:10px 14px;
-		margin-bottom:10px;
-		width:auto;
-	}
-	#menu .wrapper {
-		flex-direction:column;
-		align-items:stretch;
-		gap:10px;
-	}
-	div#menu ul {
-		position:static;
-		top:auto;
-		left:auto;
-		display:none;
-		flex-direction:column;
-		width:100%;
-		margin:0;
-		padding:0;
-		background-color:#6D4F77;
-		list-style:none;
-	}
-	div#menu ul.open {
-		display:flex;
-	}
-	div#menu ul li {
-		margin:0;
-		padding:0;
-		width:100%;
-	}
-	div#menu ul li a {
-		display:block;
-		width:100%;
-		box-sizing:border-box;
-		padding:10px 16px;
-		text-align:center;
-		margin:0 0 8px;
-	}
-	img#services-for-businesses-and-groups-polaroid,
-	img#services-for-businesses-and-groups-laughtertherapy,
-	img#services-for-businesses-and-groups-alternativeteambuilding,
-	img#how-to-workshops-improve-communication-skills,
-	img#how-to-workshops-lift-your-mood-quickly {
-		display:none !important;
-	}
-	div#services-for-businesses-and-groups,
-	div#how-to-workshops {
-		height:auto !important;
-		min-height:auto !important;
-		padding-bottom:20px;
-	}
-	div#services-for-businesses-and-groups h2,
-	div#how-to-workshops h2 {
-		position:static !important;
-		margin:0 auto 20px;
-		text-align:center;
-	}
-	div#services-for-businesses-and-groups-col1,
-	div#services-for-businesses-and-groups-col2,
-	div#how-to-workshops-col1,
-	div#how-to-workshops-col2 {
-		position:static !important;
-		width:auto !important;
-		margin:0 auto 20px;
-		padding:0;
-	}
-	div.wrapper {
-		width:auto;
-		padding:0 15px;
-		overflow:visible;
-	}
-	div.section {
-		width:auto;
-		height:auto;
-		min-height:auto;
-	}
-	div#intro {
-		margin-top:0;
-		padding-top:20px;
-		height:auto;
-	}
-	h1#intro-logo {
-		position:static !important;
-		width:auto !important;
-		height:auto !important;
-		margin:0 auto 20px;
-		display:block;
-		background-size:contain;
-		background-position:center;
-		background-repeat:no-repeat;
-		text-indent:-9999px;
-	}
-	div#intro-text,
-	img#intro-shirley,
-	img#about-me-shirley,
-	img#practice-shirley,
-	div#intro-text {
-		position:static !important;
-		left:auto !important;
-		top:auto !important;
-		width:auto !important;
-		height:auto !important;
-		margin:0 auto 20px;
-		padding:0;
-	}
-	img#intro-shirley {
-		max-width:100% !important;
-		height:auto !important;
-	}
-	div#about-me-col1,
-	div#about-me-col2,
-	div#services-for-you-col1,
-	div#services-for-you-col2,
-	div#services-for-you-col3,
-	img#services-for-you-relationshipproblems,
-	img#services-for-you-angryfrustrated,
-	img#services-for-you-traumaticsituation,
-	img#services-for-you-getupandgo,
-	img#services-for-you-anxietyphobias,
-	img#services-for-you-whycanti,
-	div#services-for-businesses-and-groups-col1,
-	div#services-for-businesses-and-groups-col2,
-	img#services-for-businesses-and-groups-polaroid,
-	img#services-for-businesses-and-groups-laughtertherapy,
-	img#services-for-businesses-and-groups-alternativeteambuilding,
-	div#how-to-workshops-col1,
-	div#how-to-workshops-col2,
-	img#how-to-workshops-improve-communication-skills,
-	img#how-to-workshops-lift-your-mood-quickly,
-	div#testimonials-col1,
-	div#testimonials-col2,
-	div#testimonials-col3,
-	div#costs-col1,
-	div#costs-col2,
-	img#costs-student-counsellor-concessions,
-	img#costs-taster-sessions-available,
-	div#contact-me-col1,
-	img#contact-me-icon-phone,
-	span#contact-me-phone-label,
-	a#contact-me-phone-number,
-	img#contact-me-icon-envelope,
-	span#contact-me-email-label,
-	span#contact-me-email-address-container,
-	div#footer-content,
-	img#footer-logo,
-	a#bacp-logo {
-		position:static !important;
-		left:auto !important;
-		top:auto !important;
-		width:auto !important;
-		margin:0 auto 20px;
-		float:none !important;
-		display:block;
-	}
-	div#about-me-col1,
-	div#about-me-col2,
-	div#services-for-you-col1,
-	div#services-for-you-col2,
-	div#services-for-you-col3,
-	div#services-for-businesses-and-groups-col1,
-	div#services-for-businesses-and-groups-col2,
-	div#how-to-workshops-col1,
-	div#how-to-workshops-col2,
-	div#testimonials-col1,
-	div#testimonials-col2,
-	div#testimonials-col3,
-	div#costs-col1,
-	div#costs-col2,
-	div#contact-me-col1,
-	div#footer-content {
-		width:auto !important;
-		padding:0;
-	}
-	div#costs,
-	div#contact-me,
-	div#footer {
-		height:auto !important;
-		min-height:auto !important;
-		position:relative !important;
-	}
-	div#contact-me h2 {
-		position:static !important;
-		margin:0 auto 20px;
-		text-align:center;
-	}
-	div#costs-col1,
-	div#costs-col2,
-	div#contact-me-col1 {
-		width:auto !important;
-		margin:0 auto 20px !important;
-		padding:0 !important;
-	}
-	div#costs-col2 video {
-		max-width:100% !important;
-		height:auto !important;
-		display:block;
-	}
-	img#contact-me-icon-phone,
-	img#contact-me-icon-envelope {
-		position:static !important;
-		width:70px !important;
-		height:auto !important;
-		margin:0 auto 10px;
-		display:block !important;
-	}
-	span#contact-me-phone-label,
-	span#contact-me-email-label,
-	a#contact-me-phone-number,
-	span#contact-me-email-address-container {
-		position:static !important;
-		width:auto !important;
-		display:block !important;
-		text-align:center;
-		margin:0 auto 10px !important;
-		padding:0 !important;
-	}
+    #menu-toggle {
+        display: inline-flex;
+    }
+    #main-nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+        padding: 10px 0;
+        background-color: #6D4F77;
+    }
+    #main-nav.open {
+        display: flex;
+    }
+    #main-nav li a {
+        width: 100%;
+        text-align: center;
+    }
+    #intro .wrapper {
+        flex-direction: column;
+    }
+    #about-me .wrapper,
+    #services-for-you .wrapper,
+    #services-for-businesses-and-groups .wrapper,
+    #how-to-workshops .wrapper,
+    #testimonials .wrapper,
+    #costs .wrapper,
+    #contact-me .wrapper,
+    #footer .wrapper {
+        grid-template-columns: 1fr;
+    }
+    #services-for-you img,
+    #services-for-businesses-and-groups img,
+    #how-to-workshops-improve-communication-skills,
+    #how-to-workshops-lift-your-mood-quickly,
+    #costs img {
+        width: 100%;
+        margin: 16px 0 0;
+    }
+    #menu .wrapper {
+        padding: 0 15px;
+    }
 }
-
-@media screen and (max-width: 1020px) {
-	div#menu {
-		width:100%;
-	}
-	div#intro {
-		margin-top:0;
-	}
-	div.section {
-		width:100%;
-	}
-	div#costs,
-	div#contact-me,
-	div#footer {
-		height:auto !important;
-		min-height:auto !important;
-		position:relative !important;
-	}
-	div#costs-col1,
-	div#costs-col2,
-	div#contact-me-col1 {
-		position:static !important;
-		width:auto !important;
-		margin:0 auto 20px !important;
-		padding:0 !important;
-	}
-	div#contact-me h2,
-	div#footer-content {
-		position:static !important;
-		margin:0 auto 20px;
-		text-align:center;
-	}
-	img#contact-me-icon-phone,
-	img#contact-me-icon-envelope,
-	img#footer-logo,
-	a#bacp-logo {
-		position:static !important;
-		width:auto !important;
-		height:auto !important;
-		margin:0 auto 10px;
-		display:block !important;
-	}
-	span#contact-me-phone-label,
-	span#contact-me-email-label,
-	a#contact-me-phone-number,
-	span#contact-me-email-address-container {
-		position:static !important;
-		width:auto !important;
-		display:block !important;
-		text-align:center;
-		margin:0 auto 10px !important;
-		padding:0 !important;
-	}
-	div#costs-col2 video {
-		max-width:100% !important;
-		height:auto !important;
-		display:block;
-		margin:0 auto;
-	}
-	img#services-for-you-relationshipproblems,
-	img#services-for-you-angryfrustrated,
-	img#services-for-you-traumaticsituation,
-	img#services-for-you-getupandgo,
-	img#services-for-you-anxietyphobias,
-	img#services-for-you-whycanti,
-	img#services-for-businesses-and-groups-polaroid,
-	img#services-for-businesses-and-groups-laughtertherapy,
-	img#services-for-businesses-and-groups-alternativeteambuilding,
-	img#how-to-workshops-improve-communication-skills,
-	img#how-to-workshops-lift-your-mood-quickly {
-		display:none !important;
-	}
+@media screen and (max-width: 640px) {
+    div.wrapper {
+        padding: 0 15px;
+    }
+    #intro {
+        padding-top: 120px;
+    }
+    #intro-text {
+        font-size: 0.98rem;
+    }
+    h2 {
+        font-size: 1.75rem;
+    }
+    #menu-toggle {
+        width: 100%;
+        justify-content: center;
+    }
+    #main-nav li a {
+        font-size: 0.95rem;
+        padding: 10px;
+    }
+    #contact-me .wrapper {
+        grid-template-columns: 1fr;
+    }
 }
