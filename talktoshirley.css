@@ -4,6 +4,19 @@ body {
     font-family: 'Quattrocento Sans', sans-serif;
     color: #7C7B7B;
 }
+#under-development-banner {
+    background-color: #FF9800;
+    color: #FFFFFF;
+    padding: 16px 0;
+    text-align: center;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 101;
+}
+#under-development-banner p {
+    margin: 0;
+    font-size: 1rem;
+}
 * {
     box-sizing: border-box;
 }
