@@ -76,6 +76,7 @@ div.wrapper {
 #main-nav {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 8px;
     margin: 0;
     padding: 0;
@@ -105,6 +106,7 @@ div.wrapper {
     display: block;
     width: 229px;
     height: 118px;
+    flex: 0 0 100%;
     background-image: url(talktoshirley.png);
     background-repeat: no-repeat;
     background-size: contain;
@@ -420,7 +422,7 @@ a#bacp-logo img {
     height: auto;
     display: block;
 }
-@media screen and (max-width: 920px) {
+@media screen and (max-width: 1000px) {
     /* Menu styling remains exactly the same */
     #menu-toggle {
         display: inline-flex;
