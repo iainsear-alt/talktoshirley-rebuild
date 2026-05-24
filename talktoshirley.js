@@ -1,10 +1,17 @@
 jQuery(document).ready(function($) {
-	$('#menu-toggle').click(function(event) {
+	var toggleMenu = function(event) {
 		event.preventDefault();
-		var expanded = $(this).attr('aria-expanded') === 'true';
-		$(this).attr('aria-expanded', expanded ? 'false' : 'true');
+		event.stopPropagation();
+		var expanded = $('#menu-toggle').attr('aria-expanded') === 'true';
+		$('#menu-toggle').attr('aria-expanded', expanded ? 'false' : 'true');
 		$('#main-nav').toggleClass('open');
-	});
+	};
+
+	if ('ontouchstart' in window || navigator.maxTouchPoints) {
+		$('#menu-toggle').on('touchend', toggleMenu);
+	} else {
+		$('#menu-toggle').on('click', toggleMenu);
+	}
 
 	$('.scroll').click(function(event){
 		event.preventDefault();

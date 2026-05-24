@@ -72,9 +72,12 @@ div.wrapper {
     padding: 10px 18px;
     font-weight: bold;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 #main-nav {
     display: flex;
+    touch-action: manipulation;
     flex-wrap: wrap;
     justify-content: center;
     gap: 8px;
