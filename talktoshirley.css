@@ -424,6 +424,8 @@ a#bacp-logo img {
     /* Menu styling remains exactly the same */
     #menu-toggle {
         display: inline-flex;
+        width: 100%;             
+        justify-content: center; 
     }
     #main-nav {
         display: none;
