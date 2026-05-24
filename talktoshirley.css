@@ -127,18 +127,21 @@ div.wrapper {
     font-weight: bold;
     font-size: 1rem;
     line-height: 1.8;
-    grid-column: 1; /* Maps to the left column */
-    grid-row: 2;    /* Maps underneath the logo */
+    grid-column: 1;
+    grid-row: 2;
+    flex: none; /* Kills the invisible straightjacket */
 }
 #intro-text a {
     color: #7C7B7B;
     text-decoration: underline;
 }
 img#intro-shirley {
-    max-width: 100%;
+    width: 100%;
+    max-width: 550px;
     border-radius: 12px;
-    grid-column: 2;  /* Maps to the right column */
-    grid-row: 1 / 3; /* The Magic: Spans from the top of the logo to the bottom of the text! */
+    grid-column: 2;
+    grid-row: 1 / 3;
+    flex: none; /* Kills the invisible straightjacket */
 }
 #about-me {
     padding: 90px 0 80px;
@@ -236,7 +239,7 @@ img#practice-shirley {
 }
 #services-for-businesses-and-groups .wrapper {
     display: grid;
-    grid-template-columns: minmax(260px, 320px) minmax(260px, 1fr);
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 30px;
     align-items: start;
 }
@@ -244,17 +247,36 @@ img#practice-shirley {
     grid-column: 1 / -1;
     color: #6D4F78;
 }
-#services-for-businesses-and-groups-col1,
-#services-for-businesses-and-groups-col2 {
+
+/* --- Clean text wrapping without rigid row locks --- */
+#services-for-businesses-and-groups-col1 {
     font-size: 1rem;
     line-height: 1.75;
 }
+#services-for-businesses-and-groups-col2 {
+    grid-column: 2 / 4; /* Spans across columns 2 and 3 */
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+/* --- Let images fall neatly underneath text columns --- */
+#services-for-businesses-and-groups-polaroid {
+    grid-column: 1 / 2;
+}
+#services-for-businesses-and-groups-laughtertherapy {
+    grid-column: 2 / 3;
+}
+#services-for-businesses-and-groups-alternativeteambuilding {
+    grid-column: 3 / 4;
+}
+
+/* Keep the images neatly sized and centered inside their columns */
 #services-for-businesses-and-groups img {
-    width: auto;
-    max-width: 260px;
+    width: 100%;
+    max-width: 240px; 
     border-radius: 12px;
     display: block;
-    margin-top: 20px;
+    margin: 20px auto 0; 
 }
 #how-to-workshops {
     padding: 90px 0 80px;
@@ -359,11 +381,39 @@ img#practice-shirley {
     background-size: auto;
     color: #7C7B7B;
 }
+/* 1. Kill the old 2-column layout dead */
 #contact-me .wrapper {
-    display: grid;
-    grid-template-columns: minmax(260px, 1fr) minmax(260px, 320px);
+    display: block !important; 
+    width: 100%;
+}
+
+/* 2. Give the intro text some breathing room before the columns start */
+#contact-me-intro {
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-top: 15px;
+    margin-bottom: 50px; 
+}
+
+/* 3. Force the 3 columns to stretch evenly across the entire screen */
+#contact-me-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
     gap: 30px;
-    align-items: start;
+    align-items: start; /* CHANGED: Aligns item tops cleanly */
+    max-width: 900px;   /* ADDED: Keeps columns compact and readable */
+    margin: 0 auto;     /* ADDED: Centers the grid block */
+}
+
+/* 4. Keep the icon and text side-by-side inside their specific columns */
+.contact-info-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.contact-text-group {
+    display: flex;
+    flex-direction: column;
 }
 #contact-me h2 {
     grid-column: 1 / -1;
@@ -448,8 +498,23 @@ a#bacp-logo img {
         width: 100%;
         text-align: center;
     }
+    /* 1. Turn OFF the grid and force the vertical stack */
     #intro .wrapper {
+        display: flex;
         flex-direction: column;
+        align-items: center;
+    }
+    
+    /* 2. Ensure the text takes up the full width so it's easy to read */
+    #intro-text {
+        width: 100%;
+    }
+
+    /* 3. Drop Shirley underneath the text with some breathing room */
+    img#intro-shirley {
+        margin-top: 30px;
+        width: 100%;
+        max-width: 450px;
     }
 
     /* --- THE FIX STARTS HERE --- */
@@ -488,8 +553,26 @@ a#bacp-logo img {
     #contact-me-icon-envelope {
         margin-top: 15px;
     }
+
+    /* --- CONTACT ME: MOBILE STACK --- */
+    /* This overrides the desktop grid ONLY when the screen drops below 1000px */
+    #contact-me-grid {
+        display: flex !important;
+        flex-direction: column !important; /* Force vertical stack on mobile only */
+        align-items: center !important;
+        gap: 35px !important; 
+    }
+    .contact-info-group {
+        flex-direction: column !important; /* Icon on top of text on phone */
+        text-align: center !important;
+        gap: 10px !important;
+    }
+    #contact-me-intro,
+    #contact-me-col1 {
+        text-align: center !important;
+    }
     #contact-me-email-address-container {
-        word-break: break-all; /* Prevent long email address from stretching the screen */
+        word-break: break-all !important;
     }
 
     /* 4. Handle images natively so they center and stack beautifully */
@@ -516,6 +599,191 @@ a#bacp-logo img {
     #menu .wrapper {
         padding: 0 15px;
     }
+/* --- SERVICES FOR YOU: MOBILE 2-COLUMN IMAGE GRID --- */
+    
+    /* 1. Switch this specific container back to a 2-column grid */
+    #services-for-you .wrapper {
+        display: grid !important; 
+        grid-template-columns: 1fr 1fr !important; /* Creates two equal columns */
+        gap: 15px !important;
+        align-items: center;
+    }
+    
+    /* 2. Force the title and all three text blocks to stretch across BOTH columns */
+    #services-for-you h2,
+    #services-for-you-col1,
+    #services-for-you-col2,
+    #services-for-you-col3 {
+        grid-column: 1 / -1 !important; 
+    }
+    
+    /* 3. Let the images naturally fall into the 2 columns without blowing up */
+    #services-for-you img {
+        width: 100% !important; 
+        max-width: 180px !important; /* Prevents them from getting blocky */
+        margin: 0 auto !important; 
+        height: auto;
+    }
+/* --- SERVICES FOR BUSINESSES: MOBILE 3-IMAGE ROW --- */
+    
+    /* 1. Turn the mobile wrapper into a mini 3-column grid */
+    #services-for-businesses-and-groups .wrapper {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr 1fr !important;
+        gap: 10px !important; 
+        align-items: center;
+    }
+
+    /* 2. Force the title and text to stretch across all 3 columns so they stay readable */
+    #services-for-businesses-and-groups h2,
+    #services-for-businesses-and-groups-col1,
+    #services-for-businesses-and-groups-col2 {
+        grid-column: 1 / -1 !important;
+    }
+
+    /* 3. Un-hide the images and ensure they don't blow up */
+    #services-for-businesses-and-groups img {
+        display: block !important; /* Overrides the earlier 'display: none' */
+        width: 100% !important;
+        height: auto !important;
+        margin: 15px auto 0 !important;
+    }
+
+    /* 4. Lock each image perfectly into its own column side-by-side */
+    #services-for-businesses-and-groups-polaroid {
+        grid-column: 1 / 2 !important;
+    }
+    #services-for-businesses-and-groups-laughtertherapy {
+        grid-column: 2 / 3 !important;
+    }
+    #services-for-businesses-and-groups-alternativeteambuilding {
+        grid-column: 3 / 4 !important;
+    }
+/* --- HOW TO WORKSHOPS: MOBILE 2-IMAGE ROW --- */
+    
+    /* 1. Turn this section into a 2-column grid */
+    #how-to-workshops .wrapper {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 15px !important;
+        align-items: center;
+    }
+
+    /* 2. Force the heading and text blocks to stretch across both columns */
+    #how-to-workshops h2,
+    #how-to-workshops-col1,
+    #how-to-workshops-col2 {
+        grid-column: 1 / -1 !important;
+    }
+
+    /* 3. Bring the images back and size them so they don't look blocky */
+    #how-to-workshops-improve-communication-skills,
+    #how-to-workshops-lift-your-mood-quickly {
+        display: block !important; /* Overrides any previous display: none */
+        width: 100% !important;
+        max-width: 180px !important; 
+        margin: 15px auto 0 !important;
+        height: auto !important;
+    }
+
+    /* 4. Lock each image into its own column side-by-side */
+    #how-to-workshops-improve-communication-skills {
+        grid-column: 1 / 2 !important;
+    }
+    #how-to-workshops-lift-your-mood-quickly {
+        grid-column: 2 / 3 !important;
+    }
+    /* --- FOOTER: MOBILE 3-IMAGE ROW --- */
+    
+    /* 1. Tell the footer wrapper to align its text content on top and create a row for logos */
+    #footer .wrapper {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 20px !important;
+    }
+
+    /* Center the copyright text full-width */
+    #footer-content {
+        text-align: center;
+        width: 100%;
+        flex: none !important;
+    }
+
+    /* 2. Create an inline row containment for the logos if needed, or target them directly if they sit in the wrapper */
+    #footer img, 
+    #footer a {
+        display: inline-block !important;
+    }
+
+    /* 3. Force all three images to live side-by-side cleanly and stay small */
+    #footer .wrapper {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr 1fr !important; /* 3 equal columns */
+        gap: 15px !important;
+        align-items: center;
+    }
+
+    /* Make sure the text block stays on top spanning across all 3 columns */
+    #footer-content {
+        grid-column: 1 / -1 !important; 
+    }
+
+    /* Keep the images crisp, high quality, and scale down naturally */
+    img#footer-logo,
+    a#bacp-logo,
+    #footer img {
+        width: 100% !important;
+        max-width: 120px !important; /* Limits the max sizing so they stay small and sharp */
+        height: auto !important;
+        margin: 0 auto !important;
+        flex: none !important;
+    }
+    
+    a#bacp-logo {
+        grid-column: 3 / 4 !important;
+    }
+    /* --- ABOUT ME: MOBILE SIDE-BY-SIDE POLAROIDS --- */
+    
+    /* 1. Reconfigure the about-me grid on mobile to accommodate side-by-side images */
+    #about-me .wrapper {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important; /* Forces two equal columns */
+        gap: 15px !important;
+        align-items: center;
+    }
+
+    /* 2. Ensure the heading and text blocks span full width across both image columns */
+    #about-me h2,
+    #about-me-col1,
+    #about-me-col2 {
+        grid-column: 1 / -1 !important;
+    }
+
+    /* 3. Explicitly size and position the two polaroids side-by-side */
+    img#about-me-shirley {
+        grid-column: 1 / 2 !important;
+        grid-row: 2 !important; 
+        width: 100% !important;
+        max-width: 45% !important; /* CHANGED: Allows it to grow and fill the space on tablets */
+        margin: 10px auto !important;
+    }
+
+    img#practice-shirley {
+        grid-column: 2 / 3 !important;
+        grid-row: 2 !important; 
+        width: 100% !important;
+        max-width: 45% !important; /* CHANGED: Allows it to grow and fill the space on tablets */
+        margin: 10px auto !important;
+    }
+
+    /* 4. Ensure the columns of biography text cleanly stack underneath the image row */
+    #about-me-col1 {
+        grid-row: 3 !important;
+    }
+    #about-me-col2 {
+        grid-row: 4 !important;
+    }
 }
 @media screen and (max-width: 640px) {
     div.wrapper {
@@ -541,4 +809,10 @@ a#bacp-logo img {
     #contact-me .wrapper {
         grid-template-columns: 1fr;
     }
+    /* Scale the polaroids back down cleanly on small phone screens */
+    img#about-me-shirley,
+    img#practice-shirley {
+        max-width: 140px !important;
+    }
+    
 }
