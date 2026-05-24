@@ -423,6 +423,7 @@ a#bacp-logo img {
     display: block;
 }
 @media screen and (max-width: 920px) {
+    /* Menu styling remains exactly the same */
     #menu-toggle {
         display: inline-flex;
     }
@@ -444,6 +445,10 @@ a#bacp-logo img {
     #intro .wrapper {
         flex-direction: column;
     }
+
+    /* --- THE FIX STARTS HERE --- */
+
+    /* 1. Stop using Grid on mobile. Switch to Flexbox to prevent overlapping text and rigid stacking */
     #about-me .wrapper,
     #services-for-you .wrapper,
     #services-for-businesses-and-groups .wrapper,
@@ -452,16 +457,56 @@ a#bacp-logo img {
     #costs .wrapper,
     #contact-me .wrapper,
     #footer .wrapper {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        gap: 20px; /* Tighter general spacing instead of massive grid gaps */
     }
+
+    /* 2. Reduce the massive 90px padding on mobile sections to tighten up the layout */
+    #intro, #about-me, #services-for-you,
+    #services-for-businesses-and-groups, #how-to-workshops,
+    #testimonials, #costs, #contact-me {
+        padding: 50px 0 40px;
+    }
+
+    /* 3. Fix the Contact section. Group the loose elements tightly and center them */
+    #contact-me .wrapper {
+        gap: 5px; /* Tiny gap so the icon, label, and email don't fly apart */
+        align-items: center;
+        text-align: center;
+    }
+    #contact-me-col1 {
+        margin-bottom: 20px;
+    }
+    #contact-me-icon-phone,
+    #contact-me-icon-envelope {
+        margin-top: 15px;
+    }
+    #contact-me-email-address-container {
+        word-break: break-all; /* Prevent long email address from stretching the screen */
+    }
+
+    /* 4. Handle images natively so they center and stack beautifully */
     #services-for-you img,
     #services-for-businesses-and-groups img,
     #how-to-workshops-improve-communication-skills,
     #how-to-workshops-lift-your-mood-quickly,
-    #costs img {
+    #costs img,
+    img#about-me-shirley,
+    img#practice-shirley {
         width: 100%;
-        margin: 16px 0 0;
+        max-width: 400px;
+        margin: 15px auto;
     }
+    
+    /* Ensure Headings behave properly */
+    h2 {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    /* --- THE FIX ENDS HERE --- */
+
     #menu .wrapper {
         padding: 0 15px;
     }
