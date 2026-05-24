@@ -104,9 +104,10 @@ div.wrapper {
 }
 #intro .wrapper {
     display: grid;
-    grid-template-columns: 1fr minmax(280px, 420px);
+    /* We are changing the columns so the text gets 1 fraction, and Shirley gets a massive 550px column */
+    grid-template-columns: 1fr minmax(350px, 550px); 
     gap: 30px;
-    align-items: start;
+    align-items: center; /* This centers the text vertically next to her taller image */
 }
 #intro-logo {
     display: block;
