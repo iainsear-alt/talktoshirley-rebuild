@@ -157,8 +157,6 @@ img#about-me-shirley,
 img#practice-shirley {
     width: 100%;
     max-width: 320px;
-    border-radius: 12px;
-    box-shadow: 0 12px 22px rgba(0, 0, 0, 0.16);
     margin: 0 auto;
 }
 #about-me-col1,
