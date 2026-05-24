@@ -784,6 +784,10 @@ a#bacp-logo img {
     #about-me-col2 {
         grid-row: 4 !important;
     }
+    /* --- INTRO: CLEAR THE FIXED MENU --- */
+    #intro {
+        padding-top: 130px !important; 
+    }
 }
 @media screen and (max-width: 640px) {
     div.wrapper {
