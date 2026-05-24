@@ -788,6 +788,19 @@ a#bacp-logo img {
     #intro {
         padding-top: 130px !important; 
     }
+    /* --- INTRO: CENTER LOGO AND TEXT --- */
+    #intro-logo {
+        height: 160px !important; 
+        background-position: center center !important; /* Centers the actual image inside the block */
+        margin: 0 auto 20px auto !important; /* The Magic: Forces equal space on left and right */
+        width: 100% !important;
+        display: block !important;
+    }
+    
+    #intro-text {
+        text-align: center !important; 
+        width: 100% !important; 
+    }
 }
 @media screen and (max-width: 640px) {
     div.wrapper {
