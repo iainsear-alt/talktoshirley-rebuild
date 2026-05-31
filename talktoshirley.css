@@ -134,6 +134,13 @@ div.wrapper {
     grid-row: 2;
     flex: none; /* Kills the invisible straightjacket */
 }
+#intro-text h1 {
+    font-size: 1.75rem;
+    color: #6D4F77; /* Using her gorgeous purple theme color */
+    margin: 0 0 15px 0;
+    font-family: 'Quattrocento Sans', sans-serif;
+    font-weight: 700;
+}
 #intro-text a {
     color: #7C7B7B;
     text-decoration: underline;
